@@ -7,7 +7,8 @@
     Statewise Live Data
   </h5>
 </div>
-<table class="table">
+<div class="table-container">
+  <table class="table">
     <thead>
       <tr>
         <th scope="col">State</th>
@@ -31,7 +32,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let state of states" [ngClass]="{'bgColor': state.loc == 'INDIA'}">
-        <th (click)="changeData(state)">{{state.loc}}</th>
+        <th (click)="changeData(state)" class="pointer">{{state.loc}}</th>
         <td>{{state.totalConfirmed}}</td>
         <td>{{state.deaths}}</td>
         <td>{{state.confirmedCasesIndian}}</td>
@@ -42,3 +43,5 @@
       
     </tbody>
   </table>
+</div>
+

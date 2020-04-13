@@ -6,3 +6,12 @@
     display: flex;
     justify-content: center;
 }
+
+.pointer {
+    cursor: pointer;
+}
+
+.table-container {
+    max-height: 300px;
+    overflow-y: auto;
+}
