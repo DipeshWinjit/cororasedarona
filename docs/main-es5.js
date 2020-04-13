@@ -51,7 +51,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\n  <a class=\"navbar-brand\" href=\"#\">Corona Se Darona</a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n\n  <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n    <ul class=\"navbar-nav mr-auto\">\n      <!-- <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"#\">Home <span class=\"sr-only\">(current)</span></a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" href=\"#\">Link</a>\n      </li>\n      <li class=\"nav-item dropdown\">\n        <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n          Dropdown\n        </a>\n        <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">\n          <a class=\"dropdown-item\" href=\"#\">Action</a>\n          <a class=\"dropdown-item\" href=\"#\">Another action</a>\n          <div class=\"dropdown-divider\"></div>\n          <a class=\"dropdown-item\" href=\"#\">Something else here</a>\n        </div>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link disabled\" href=\"#\" tabindex=\"-1\" aria-disabled=\"true\">Disabled</a>\n      </li> -->\n    </ul>\n    <!-- <form class=\"form-inline my-2 my-lg-0\">\n      <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Search\" aria-label=\"Search\">\n      <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\">Search</button>\n    </form> -->\n  </div>\n</nav>\n<div class=\"container\">\n  <router-outlet></router-outlet>\n</div>";
+    __webpack_exports__["default"] = "<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\n  <img src=\"../assets/logo.png\" width=\"41\"> \n  <a class=\"navbar-brand\" href=\"#\">Corona Se Darona</a>\n  <!-- <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button> -->\n\n  <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n    <ul class=\"navbar-nav mr-auto\">\n      <!-- <li class=\"nav-item active\">\n        <a class=\"nav-link\" href=\"#\">Home <span class=\"sr-only\">(current)</span></a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" href=\"#\">Link</a>\n      </li>\n      <li class=\"nav-item dropdown\">\n        <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">\n          Dropdown\n        </a>\n        <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">\n          <a class=\"dropdown-item\" href=\"#\">Action</a>\n          <a class=\"dropdown-item\" href=\"#\">Another action</a>\n          <div class=\"dropdown-divider\"></div>\n          <a class=\"dropdown-item\" href=\"#\">Something else here</a>\n        </div>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link disabled\" href=\"#\" tabindex=\"-1\" aria-disabled=\"true\">Disabled</a>\n      </li> -->\n    </ul>\n    <!-- <form class=\"form-inline my-2 my-lg-0\">\n      <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Search\" aria-label=\"Search\">\n      <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\">Search</button>\n    </form> -->\n  </div>\n</nav>\n<div class=\"container\">\n  <router-outlet></router-outlet>\n</div>";
     /***/
   },
 
@@ -71,7 +71,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<table class=\"table\">\n    <thead>\n      <tr>\n        <th scope=\"col\">state</th>\n        <th>Total</th>\n        <th>\n            Deaths\n        </th>\n        <th>\n            Indians\n        </th>\n        <th>\n            Foreigners\n        </th>\n        <th>\n            Discharged\n        </th>\n        <th>\n            Active\n        </th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr *ngFor=\"let state of states\">\n        <th>{{state.loc}}</th>\n        <td>{{state.totalConfirmed}}</td>\n        <td>{{state.deaths}}</td>\n        <td>{{state.confirmedCasesIndian}}</td>\n        <td>{{state.confirmedCasesForeign}}</td>\n        <td>{{state.discharged}}</td>\n        <td>{{state.totalConfirmed - state.discharged - state.deaths}}</td>\n      </tr>\n      \n    </tbody>\n  </table>\n";
+    __webpack_exports__["default"] = "<div style=\"margin-top: 30px;\">\n\n  <div class=\"chart-container\">\n    <google-chart [type]=\"type\" [data]=\"myData\" [options]=\"options\" [title]=\"title\"></google-chart>\n  </div>\n  <h5>\n    Statewise Live Data\n  </h5>\n</div>\n<table class=\"table\">\n    <thead>\n      <tr>\n        <th scope=\"col\">State</th>\n        <th>Total</th>\n        <th>\n            Deaths\n        </th>\n        <th>\n            Indians\n        </th>\n        <th>\n            Foreigners\n        </th>\n        <th>\n            Discharged\n        </th>\n        <th>\n            Active\n        </th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr *ngFor=\"let state of states\" [ngClass]=\"{'bgColor': state.loc == 'INDIA'}\">\n        <th (click)=\"changeData(state)\">{{state.loc}}</th>\n        <td>{{state.totalConfirmed}}</td>\n        <td>{{state.deaths}}</td>\n        <td>{{state.confirmedCasesIndian}}</td>\n        <td>{{state.confirmedCasesForeign}}</td>\n        <td>{{state.discharged}}</td>\n        <td>{{state.totalConfirmed - state.discharged - state.deaths}}</td>\n      </tr>\n      \n    </tbody>\n  </table>\n";
     /***/
   },
 
@@ -926,6 +926,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _angular_common_http__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! @angular/common/http */
     "./node_modules/@angular/common/fesm2015/http.js");
+    /* harmony import */
+
+
+    var angular_google_charts__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! angular-google-charts */
+    "./node_modules/angular-google-charts/fesm2015/angular-google-charts.js");
 
     var AppModule = function AppModule() {
       _classCallCheck(this, AppModule);
@@ -933,7 +939,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
       declarations: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"], _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_5__["DashboardComponent"]],
-      imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClientModule"]],
+      imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_6__["HttpClientModule"], angular_google_charts__WEBPACK_IMPORTED_MODULE_7__["GoogleChartsModule"].forRoot()],
       providers: [],
       bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
     })], AppModule);
@@ -956,7 +962,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2Rhc2hib2FyZC9kYXNoYm9hcmQuY29tcG9uZW50LnNjc3MifQ== */";
+    __webpack_exports__["default"] = ".bgColor {\n  background-color: cadetblue;\n}\n\n.chart-container {\n  display: flex;\n  justify-content: center;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZGFzaGJvYXJkL0M6XFxVc2Vyc1xcZGlwZXNoZlxcRGVza3RvcFxcY292aWRcXE5ldyBmb2xkZXJcXGNvcm9yYXNlZGFyb25hL3NyY1xcYXBwXFxkYXNoYm9hcmRcXGRhc2hib2FyZC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvZGFzaGJvYXJkL2Rhc2hib2FyZC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLDJCQUFBO0FDQ0o7O0FERUE7RUFDSSxhQUFBO0VBQ0EsdUJBQUE7QUNDSiIsImZpbGUiOiJzcmMvYXBwL2Rhc2hib2FyZC9kYXNoYm9hcmQuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYmdDb2xvciB7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiBjYWRldGJsdWU7XHJcbn1cclxuXHJcbi5jaGFydC1jb250YWluZXJ7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbn0iLCIuYmdDb2xvciB7XG4gIGJhY2tncm91bmQtY29sb3I6IGNhZGV0Ymx1ZTtcbn1cblxuLmNoYXJ0LWNvbnRhaW5lciB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xufSJdfQ== */";
     /***/
   },
 
@@ -1003,6 +1009,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         _classCallCheck(this, DashboardComponent);
 
         this.api = api;
+        this.states = [];
+        this.myData = [];
+        this.type = 'PieChart';
+        this.options = {
+          is3D: true
+        };
       }
 
       _createClass(DashboardComponent, [{
@@ -1017,8 +1029,30 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           this.api.getData().subscribe(function (data) {
             console.log(data);
+            var tempObj = {
+              loc: 'INDIA',
+              confirmedCasesIndian: data.data.summary.confirmedCasesIndian,
+              discharged: data.data.summary.discharged,
+              deaths: data.data.summary.deaths,
+              confirmedCasesForeign: data.data.summary.confirmedCasesForeign,
+              totalConfirmed: data.data.summary.total
+            };
+            var active = data.data.summary.total - data.data.summary.discharged - data.data.summary.deaths;
+            var tempArray = [['Discharged', data.data.summary.discharged], ['Deaths', data.data.summary.deaths], ['Active', active]];
+            _this.title = "Data For India";
+            _this.myData = tempArray;
             _this.states = data.data.regional;
+
+            _this.states.unshift(tempObj);
           });
+        }
+      }, {
+        key: "changeData",
+        value: function changeData(data) {
+          var active = data.totalConfirmed - data.discharged - data.deaths;
+          var tempArray = [['Discharged', data.discharged], ['Deaths', data.deaths], ['Active', active]];
+          this.title = "Data For " + data.loc;
+          this.myData = tempArray;
         }
       }]);
 

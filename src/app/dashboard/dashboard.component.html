@@ -1,7 +1,16 @@
+<div style="margin-top: 30px;">
+
+  <div class="chart-container">
+    <google-chart [type]="type" [data]="myData" [options]="options" [title]="title"></google-chart>
+  </div>
+  <h5>
+    Statewise Live Data
+  </h5>
+</div>
 <table class="table">
     <thead>
       <tr>
-        <th scope="col">state</th>
+        <th scope="col">State</th>
         <th>Total</th>
         <th>
             Deaths
@@ -21,8 +30,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let state of states">
-        <th>{{state.loc}}</th>
+      <tr *ngFor="let state of states" [ngClass]="{'bgColor': state.loc == 'INDIA'}">
+        <th (click)="changeData(state)">{{state.loc}}</th>
         <td>{{state.totalConfirmed}}</td>
         <td>{{state.deaths}}</td>
         <td>{{state.confirmedCasesIndian}}</td>
